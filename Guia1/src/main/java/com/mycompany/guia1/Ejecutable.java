@@ -5,54 +5,54 @@
 package com.mycompany.guia1;
 
 import Ejercicio2.Password;
-import java.util.Scanner;
-
+import Ejercicio1.Persona;
 /**
  *
  * @author Javie
  */
 public class Ejecutable {
-    
-    
 
-   public static void main(String[]args){
-      int numeroDePass;
-      Scanner tec=new Scanner(System.in);
-      System.out.println("Ingrese el numero de contraseñas a construir");
-      numeroDePass=tec.nextInt();
-      Password pass[]=new Password[numeroDePass];
-      String cond,fuerte;
-      int longitud;
-   
-      for(int i=0;i<numeroDePass;i++){
-         System.out.println("Desea ingresar la longitud de la contraseña? ");
-         cond=tec.next();
-         if(cond.toLowerCase().equals("si")){
-            System.out.println("Ingrese su longitud y se creara automaticamente su contraseña ");
-            longitud=tec.nextInt();
-            //pass = new Password(longitud);
-            
-         }else{
-            //pass=new Password();
-            System.out.println("Escriba su contraseña de  8 caracteres:");
-            //pass.setContrasenia(tec.next());
-         }
-      }
-      for(int i=0;i<numeroDePass;i++){
-////         if(pass.isEsFuerte(pass.getContrasenia())==true){
-////            fuerte="fuerte!";
-////            
-////         }else{
-////            fuerte="debil";
-////         }
-////         
-////         //System.out.println("la contraseña Nº: "+(i+1)+" es igual a: "+pass.getContrasenia()+" "+" " +fuerte);
-////         
-      }
-      
-   
-   }
+    public static void main(String[] args) {
 
+        //Ejercicio 1
+        Entrada entrada1 = new Entrada();
+
+        String nombre;
+        int edad;
+        String sexo;
+        float peso;
+        float altura;
+
+        //datos de usuario
+        System.out.println("Obtencion de datos");
+        System.out.println("------------------");
+        nombre = entrada1.obtenerString("Dame el nombre de la persona:");
+        edad = entrada1.obtenerEntero("Dame la edad de " + nombre);
+        sexo = entrada1.obtenerString("Dime el sexo de " + nombre);
+        peso = entrada1.obtenerFloat("Dime el peso de " + nombre);
+        altura = entrada1.obtenerFloat("Dame la altura para " + nombre);
+              
+        ////////////////////////////////////////////////////////////////////
+        
+        //Ejercicio 2
+        
+        //Password pass()=new Password();
+        Entrada entrada2 = new Entrada();
+        int i;
+        //entrada.obtenerEntero("Introduce la cantidad de Passwords")		
+        Password[] passwd = new Password[5];
+        for (i = 0; i < passwd.length; i++) {
+            passwd[i] = new Password();
+            passwd[i].setLongitud(entrada2.obtenerEntero("De que longitud quieres la contraseña numero " + (i + 1) + ": "));
+        }
+        System.out.println("Nº\tFortaleza\tContraseña");
+        System.out.println("--------------------------------------");
+        for (i = 0; i < passwd.length; i++) {
+            passwd[i].generarPassword();
+            System.out.printf("%s\t%s\t\t%s%n", (i + 1), passwd[i].esFuerte(), passwd[i].getContraseña());
+        }
+
+    }
 }
     
 
