@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <h2>Conversor de temperaturas</h2>
+        <p>Escriba aqui el valor de la temperatura en celcius:</p>
+
+        <form action="#" method="post">
+            <label for="gradoCelsius">GradoCelsius:</label>
+            <input type="text" name="gradoCelsius" id="gradoCelsius"> 
+            <input type="button" name="enviar" id="enviar" value="calcular" onclick="convertir1()" />
+        </form>
+
+        <script type="text/javascript">
+
+            function convertir1() {
+                var celsius = document.getElementById("gradoCelsius").value;
+                var fahrenheit = (celsius * 1.8) + 32;
+
+                alert(fahrenheit + "F");
+            }
+
+        </script>
+
+        <p>Escriba aqui el valor de la temperatura en kelvin:</p>
+
+        <form action="#" method="post">
+            <label for="gradoKelvin:">GradoKelvin:</label>
+            <input type="text" name="gradoKelvin:" id="gradoKelvin"> 
+            <input type="button" name="enviar" id="enviar" value="calcular" onclick="convertir2()" />
+        </form>
+
+        <script type="text/javascript">
+
+            function convertir2() {
+                var kelvin = document.getElementById("gradoKelvin").value;
+                var celsius = kelvin - 273;
+
+                alert(celsius + "°");
+            }
+
+        </script>
+
+        <h2>Sumar dos números</h2>  
+
+        <input id="txtNum1" name="textinput" type="text" >
+        <input id="txtNum2" name="textinput" type="text" > 
+        =
+        <label id="lblResultado"></label> 
+
+        <br /><br />
+
+        <button id="btnSumar" name="Boton sumar" onclick="suma(document.getElementById('txtNum1').value, document.getElementById('txtNum2').value);">Sumar</button>
+        <button id="btnRestar" name="Boton sumar" onclick="restar(document.getElementById('txtNum1').value, document.getElementById('txtNum2').value);">Restar</button>
+        <button id="btnMultiplicar" name="Boton sumar" onclick="multiplicacion(document.getElementById('txtNum1').value, document.getElementById('txtNum2').value);">Multiplicar</button>
+        <button id="btnDividir" name="Boton sumar" onclick="division(document.getElementById('txtNum1').value, document.getElementById('txtNum2').value);">Dividir</button>
+
+        <script type="text/javascript">
+
+            var res;
+
+            function suma(num1, num2) {
+                res = parseFloat(num1) + parseFloat(num2);
+                document.getElementById('lblResultado').innerHTML = res;
+            }
+
+            function restar(num1, num2) {
+                res = parseFloat(num1) - parseFloat(num2);
+                document.getElementById('lblResultado').innerHTML = res;
+            }
+
+            function multiplicacion(num1, num2) {
+                res = parseFloat(num1) * parseFloat(num2);
+                document.getElementById('lblResultado').innerHTML = res;
+            }
+
+            function division(num1, num2) {
+                res = parseFloat(num1) / parseFloat(num2);
+                document.getElementById('lblResultado').innerHTML = res;
+            }
+
+        </script>
+    </body>
+</html>
